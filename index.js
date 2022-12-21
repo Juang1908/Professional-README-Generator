@@ -1,72 +1,91 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require("fs");
-
+const generateMarkdown = require("./generateMarkdown");
 // TODO: Create an array of questions for user input
 const questions = [
     {
         type: "input",
         message: "What is your project title?",
-        name: "Title",
+        name: "title",
       },
 
     {
         type:  "input",
         message: "What is your motivation? What problem does it solve?",
-        name:   "Description"
+        name:   "description"
       },
 
     {
         type:  "input",
         message: "Table of Contents:",
-        name:   "Table of Contents"
+        name:   "table"
       },
 
     {
         type:  "input",
         message: "What are the steps required to install your project? Provide a step-by-step description.",
-        name:   "Installation"
+        name:   "installation"
       },
 
     {
         type: "list",
         message: "Choose a license",
-        name: "licenses",
+        name: "license",
         choices: [
             "MIT License",
             "Apache License 2.0",
-            "Mozilla Public License 2.0",    
+            "Mozilla Public License 2.0",
+            "none"    
         ],
+      },
+
+      {
+        type:  "input",
+        message: "Test",
+        name:   "test"
+      },
+
+      {
+        type:  "input",
+        message: "Usage Porpuse?",
+        name:   "usage"
       },
 
     {
         type:  "input",
         message: "What's your Github username?",
-        name:   "Username"
+        name:   "github"
       },
 
     {
         type:  "input",
         message: "What's your E-mail address?",
-        name:   "E-mail"
+        name:   "email"
       },
 ];
 
 
-    inquirer.prompt(questions).then((answers) => {
-    fs.writeFile("README.json", JSON.stringify(answers), (error) =>
-    error ? console.error(error) : console.log("File Written Succesfully"));
-});
+   
 
 
 
 
 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {}
 
-// // TODO: Create a function to initialize app
-// function init() {}
 
-// // Function call to initialize app
-// init();
+
+
+// TODO: Create a function to initialize app
+function init() { 
+  inquirer.prompt(questions).then((answers) => {
+  
+fs.writeFile("README.md", generateMarkdown(answers), (error) =>
+// IF error exists conosole error. IF it does Not exist console log success 
+error ? console.error(error) : console.log("File Written Succesfully"));
+})}
+
+// Function call to initialize app
+init();
