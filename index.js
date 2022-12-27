@@ -12,7 +12,7 @@ const questions = [
 
     {
         type:  "input",
-        message: "What is your motivation? What problem does it solve?",
+        message: "Description?",
         name:   "description"
       },
 
@@ -24,7 +24,7 @@ const questions = [
 
     {
         type:  "input",
-        message: "What are the steps required to install your project? Provide a step-by-step description.",
+        message: "Installation Requirements",
         name:   "installation"
       },
 
@@ -48,7 +48,7 @@ const questions = [
 
       {
         type:  "input",
-        message: "Usage Porpuse?",
+        message: "Usage?",
         name:   "usage"
       },
 
@@ -72,11 +72,9 @@ const questions = [
 
 
 
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
-
-
-
 
 // TODO: Create a function to initialize app
 function init() { 
